@@ -3,6 +3,7 @@
 import sys
 import os
 import argparse
+import time
 import setproctitle
 import logging
 logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
@@ -24,6 +25,7 @@ def send_packet():
 		num_char = ord(char)
 		new_pkt = craft_packet(num_char)
 		send(new_pkt)
+		time.sleep(5)
 
 def main():
 	setproctitle.setproctitle("messenger")
