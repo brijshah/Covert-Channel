@@ -36,7 +36,7 @@ parser.add_argument('-f', '--file', dest='file', help='file to send', required=T
 args = parser.parse_args()
 
 with open (args.file, "r") as myfile:
-	data = myfile.read()
+	data = myfile.read().rstrip('\n')
 
 #-----------------------------------------------------------------------------
 #-- FUNCTION:       craft_packet(int)

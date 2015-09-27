@@ -27,8 +27,6 @@ import logging
 logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
 from scapy.all import *
 
-f = open('covert', 'w')
-
 #-----------------------------------------------------------------------------
 #-- FUNCTION:       decode(string)
 #--
@@ -58,7 +56,9 @@ def parse(pkt):
 	if wnd == 4096:
 		ip = pkt['IP'].src
 		char = chr(int(decode(ip)) - 10)
+		f = open('covert', 'a')
 		f.write(ip + '(' + char + ')' + '\n')
+		f.close()
 
 #-----------------------------------------------------------------------------
 #-- FUNCTION:       main()
